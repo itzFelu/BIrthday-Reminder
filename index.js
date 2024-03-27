@@ -5,7 +5,7 @@ const dobRouter=require('./routes/dob');
 const {restrictToLoggedInUserOnly, checkAuth}=require('./middlewares/auth');
 const{mongoConnect}=require('./connection');
 /* database connection */
-mongoConnect("mongodb://localhost:27017/birthday-reminder-app");
+mongoConnect();
 
 const app=express();
 app.set('view engine','ejs');
