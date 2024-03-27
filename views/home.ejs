@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Felu's</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        p{
+            padding-right: 15px;
+            margin-bottom: 0;
+        }
+        #logout{
+            padding-left: 60px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="topnav">
+         <a class="active" href="/"> Felu's B'Day Reminder</a>
+        
+    <!--    <a href="#about">About</a>
+        <a href="#contact">Contact</a> -->
+        <div class="login-container">
+            <% if (locals.user) { %>
+                <p>Welcome  <strong><i><%= user.name %></i></strong></p>
+                <a id="logout" href="/logout">logout</a>
+            <% } else { %>
+                <a href="/signup">signup</a>
+                <a href="/login">login</a>
+            <% } %>
+        </div>
+    </div>
+    <h2>Don't you dare forget  <i><strong><u>Your loved One's Birthday</u></i></h2>
+    <div class="container">
+        <h3>Add New Record</h3>
+        <form action="/dob" method="post">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter name" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="ADD">
+            </div>
+        </form>
+    </div>
+    <hr><hr>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Date of Birth</th>
+        </tr>
+        <% if (locals.arr) { %>
+            <% arr.forEach(obj => { %>
+                <tr>
+                    <td> <%= obj.name %> </td>
+                    <td> <%= obj.dob %> </td>
+                </tr>
+                <% }) %>
+        <% } %>
+        
+        
+        
+        <!-- Add more rows as needed -->
+    </table>
+</body>
+</html>

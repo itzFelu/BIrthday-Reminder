@@ -1,0 +1,8 @@
+else { %>
+    <form action="/login" method="post">
+        <a href="/signup">signup first</a>
+        <input type="text" placeholder="email" name="email">
+        <input type="text" placeholder="Password" name="password">
+        <button type="submit">Login</button>
+    </form>
+<% } %>
