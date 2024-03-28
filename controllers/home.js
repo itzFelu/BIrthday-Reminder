@@ -24,6 +24,22 @@ async function handleCreateEntry(req, res) {
     });
     return res.status(201).redirect('/');
 }
+async function handleDeleteEntry(req,res){
+    const id=req.params.id;
+    console.log("id: "+id);
+    try{
+        const result= await DOB.deleteOne({_id : id, created_by: req.user._id});
+        if(!result){
+            return res.status(400).json({message: "you're not a authorised user to delete this entry"});
+        }
+        console.log("entry deleted");
+    }
+    catch(err){
+        console.log("error deleting: "+err);
+    };
+    
+    return res.status(201).redirect('/');
+}
 function handleLogout(req, res) {
     clearUser();
     res.clearCookie('uid');
@@ -32,5 +48,6 @@ function handleLogout(req, res) {
 module.exports = {
     handleCreateEntry,
     handleHome,
-    handleLogout
+    handleLogout,
+    handleDeleteEntry
 }

@@ -54,12 +54,15 @@
         <tr>
             <th>Name</th>
             <th>Date of Birth</th>
+            <th>Delete Entry</th>
         </tr>
         <% if (locals.arr) { %>
             <% arr.forEach(obj => { %>
                 <tr>
                     <td> <%= obj.name %> </td>
                     <td> <%= obj.dob %> </td>
+                    <td> <a href="/dob/<%= obj._id %>" data-method="delete">delete</a> </td>
+                    
                 </tr>
                 <% }) %>
         <% } %>
