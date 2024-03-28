@@ -4,7 +4,11 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+<<<<<<< HEAD
     "start": "node app.js"
+=======
+    "start": "node index.js"
+>>>>>>> 249ca3989f7510b146cadff55f5789987c107b99
   },
   "author": "felu",
   "license": "ISC",
